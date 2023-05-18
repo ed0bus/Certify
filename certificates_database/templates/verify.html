@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    table {
+        color: black;
+        text-align: center;
+        font-family: futura;
+        margin: 30px;
+    }
+</style>
+
+
+
+<table class='table table-striped  table-bordered table-hover' style="width:90%">
+    <caption>The certificate is valid! For any additional information regarding the transaction you can use <a
+            href="https://goerli.etherscan.io/tx/{{certificate.txId}}">Etherscan.</a></caption>
+    <tbody>
+        <tr>
+            <th>Name:</th>
+            <td>{{ certificate.name}}</td>
+        </tr>
+        <tr>
+            <th>Surname:</th>
+            <td>{{ certificate.surname}}</td>
+        </tr>
+        <tr>
+            <th>Nationality:</th>
+            <td>{{ certificate.nationality}}</td>
+        </tr>
+        <tr>
+            <th>Birthdate:</th>
+            <td>{{certificate.birth_date}}</td>
+        </tr>
+        <tr>
+            <th>Subject:</th>
+            <td>{{ certificate.subject}}</td>
+        </tr>
+        <tr>
+            <th>Achievement Date:</th>
+            <td>{{certificate.achievement_date}}</td>
+        </tr>
+        <tr>
+            <th>Certificate Score:</th>
+            <td>{{certificate.certificate_score}}</td>
+        </tr>
+        <tr>
+            <th>Issuance Date:</th>
+            <td>{{ certificate.issuance_date}}</td>
+        </tr>
+        <tr class="table-warning">
+            <th>Transaction ID:</th>
+            <td>{{ certificate.txId}}</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+{% endblock %}

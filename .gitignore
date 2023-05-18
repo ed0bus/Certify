@@ -1,0 +1,6 @@
+db.sqlite3
+.idea
+.env
+main.py
+__pycache__/
+migrations/

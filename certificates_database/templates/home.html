@@ -1,0 +1,85 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/dc0c634418.js" crossorigin="anonymous"></script>
+
+<head>
+    <style>
+body {
+  background-color: white;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  font-family: Redressed;
+  font-size: 400%;
+  margin-bottom: 30px;
+  margin-top: 50px;
+
+
+  }
+
+p {
+  font-family: Redressed;
+  font-size: 150%;
+  color: black;
+  margin: 50px;
+  margin-bottom: 30px;
+
+
+}
+
+form { position: relative}
+
+div2 { left:50px;}
+
+</style>
+</head>
+
+<body>
+
+<h1>Welcome to Certify</h1>
+
+
+<p><b>Certify</b> is a web application that allow users to verify certificates validity of migrants who attended
+    ministry of
+    labour and social policy courses. The verification is implemented through the use of <b>Ethereum Ropsten</b> blockchain.
+    Insert the
+    Certificate ID below to verify the document and all the information correlated to the candidate.</p>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <div class="container-fluid p-0">
+        <div class="alert {{ message.tags }} alert-danger" role="alert">
+            {{ message }}
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div2 class="input-group rounded" >
+    <form action="{% url 'search_results' %}" method="get">
+        {% csrf_token %}
+    <input name="q" type="text" size="90" placeholder="Insert Certificate ID...">
+    <button>Search</button>
+    </form>
+</div2>
+
+
+<p>If you don't know the candidate code, open the <b>Certificates Database</b> in the navigation bar and find the necessary
+    one to check the certificate authenticity. <b>Admin login</b> is exclusive for examiners and ministry of labour
+    and social policy officers. </p>
+
+
+</body>
+
+
+{% endblock %}
